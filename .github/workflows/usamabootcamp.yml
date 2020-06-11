@@ -18,14 +18,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    # Runs a single command using the runners shell
     - name: Installing Nodejs
       uses: action/setup-node@v2-beta
       with:
         node-version: 12 
     - name: Installing surge
       run: npm install -g surge
-    -name: Running surge
+    - name: Running surge
       run: surge ./ syedusamanaveed.surge.sh --token ${{secrets.SURGE_TOKEN}}
  
